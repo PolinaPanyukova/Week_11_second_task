@@ -2,12 +2,12 @@ body {
   font-family: Arial, sans-serif;
   background-color: #fff;
   margin: 0;
-  padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   box-sizing: border-box;
+  
 }
 
 .cart {
@@ -19,8 +19,8 @@ body {
   background-color: #f9f9f9;
   margin: 20px;
   box-sizing: border-box;
-  overflow-y: auto;
-  max-height: calc(100vh - 40px);
+ 
+
 }
 
 h1 {
