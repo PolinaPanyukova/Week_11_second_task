@@ -8,6 +8,8 @@
 // Выводим готовый готовый массив с числовыми значениями цен
 // Сложить значения массива
 // Соединить итоговое значение массива с html для динамического отображения
+// Создать функцию, которая будет вычитать 20% от общей стоимости
+// Добавить addEventListener на кнопку ”Использовать купон на 20%”
 
 // Находим все элементы с классом .item-price
 const priceElements = document.querySelectorAll('.item-price');
@@ -15,7 +17,7 @@ const priceElements = document.querySelectorAll('.item-price');
 // Создаем массив для хранения числовых значений цен
 const prices = [];
 
-// Убираем пробелы, текст "руб." и приводим строку к числу
+// Функция для удаления текста "руб." и преобразования строки в число
 function toNum(str) {
     const num = Number(str.replace(/руб\./g, ""));
     return num;
@@ -30,13 +32,20 @@ priceElements.forEach((element) => {
 // Готовый массив с числовыми значениями цен
 console.log(prices);
 
-//Сложить значения массива
-
+// Сложить значения массива
 const sumOfNumbers = prices.reduce((acc, number) => acc + number, 0);
 console.log(sumOfNumbers);
 
-
-//соединить итоговое значение массива с html для динамического отображения
-
+// Соединить итоговое значение массива с HTML для динамического отображения
 const totalElement = document.querySelector('.total-price');
 totalElement.innerHTML = `${sumOfNumbers} руб.`;
+
+// Создать функцию, которая будет вычитать 20% от общей стоимости
+function discount() {
+    const sumDiscount = sumOfNumbers - (sumOfNumbers * 0.2);
+    totalElement.innerHTML = `${sumDiscount} руб.`;
+}
+
+//Добавить addEventListener на кнопку ”Использовать купон на 20%”
+const coupon = document.querySelector('.coupon');
+coupon.addEventListener('click', discount);
